@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Muhammad Aamir – Backend Developer specializing in PHP and Laravel. Experienced in building web applications, APIs, and CRM systems at Techline Programmers." />
+  <meta name="keywords" content="Muhammad Aamir, Backend Developer, PHP Developer, Laravel Developer, Web Developer, Pakistan" />
+  <meta name="author" content="Muhammad Aamir" />
+  <meta property="og:title" content="Muhammad Aamir | Backend Developer · PHP & Laravel" />
+  <meta property="og:description" content="Backend Developer specializing in PHP, Laravel, and modern web technologies. Building robust web applications and APIs." />
+  <meta property="og:type" content="website" />
+  <title>Muhammad Aamir | Backend Developer · PHP &amp; Laravel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    :root {
+      --bg:       #09090f;
+      --bg2:      #0f0f1a;
+      --bg3:      #13131f;
+      --surface:  rgba(255,255,255,0.03);
+      --surface2: rgba(255,255,255,0.06);
+      --border:   rgba(139,92,246,0.15);
+      --border2:  rgba(139,92,246,0.30);
+      --purple:   #8b5cf6;
+      --purpleL:  #a78bfa;
+      --purpleD:  #6d28d9;
+      --accent:   #c084fc;
+      --text:     #f1f0ff;
+      --muted:    #9ca3af;
+      --faint:    #6b7280;
+      --grad:     linear-gradient(135deg,#6d28d9 0%,#8b5cf6 50%,#a78bfa 100%);
+      --gradcard: linear-gradient(145deg,rgba(139,92,246,0.08),rgba(109,40,217,0.03));
+      --shadow:   0 0 30px rgba(139,92,246,0.25);
+      --shadowc:  0 8px 32px rgba(0,0,0,0.4),0 1px 0 rgba(255,255,255,0.05);
+      --r:        0.3s cubic-bezier(.4,0,.2,1);
+      --font:     'Inter',sans-serif;
+      --mono:     'JetBrains Mono',monospace;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:var(--purple) var(--bg2)}
+    ::-webkit-scrollbar{width:6px}
+    ::-webkit-scrollbar-track{background:var(--bg2)}
+    ::-webkit-scrollbar-thumb{background:var(--purpleD);border-radius:99px}
+    body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden}
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
+    ul{list-style:none}
+
+    .container{width:100%;max-width:1200px;margin:0 auto;padding:0 24px}
+    .sec{padding:100px 0}
+
+    .tag{display:inline-flex;align-items:center;gap:6px;font-size:.75rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--purpleL);background:rgba(139,92,246,.12);border:1px solid rgba(139,92,246,.25);padding:6px 14px;border-radius:99px;margin-bottom:16px}
+    .stitle{font-size:clamp(2rem,5vw,3rem);font-weight:800;line-height:1.15;letter-spacing:-.02em}
+    .gtext{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .sdesc{font-size:1.05rem;color:var(--muted);max-width:560px;margin-top:12px}
+
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;border-radius:12px;font-weight:600;font-size:.95rem;cursor:pointer;border:none;transition:var(--r);white-space:nowrap;font-family:var(--font)}
+    .btn-p{background:var(--grad);color:#fff;box-shadow:0 4px 20px rgba(109,40,217,.4)}
+    .btn-p:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(109,40,217,.55)}
+    .btn-o{background:transparent;color:var(--purpleL);border:1.5px solid rgba(139,92,246,.5)}
+    .btn-o:hover{background:rgba(139,92,246,.12);border-color:var(--purpleL);transform:translateY(-2px)}
+
+    .reveal{opacity:0;transform:translateY(32px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.vis{opacity:1;transform:translateY(0)}
+    .revL{opacity:0;transform:translateX(-32px);transition:opacity .7s ease,transform .7s ease}
+    .revL.vis{opacity:1;transform:translateX(0)}
+    .revR{opacity:0;transform:translateX(32px);transition:opacity .7s ease,transform .7s ease}
+    .revR.vis{opacity:1;transform:translateX(0)}
+
+    /* blobs */
+    .blobs{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+    .blob{position:absolute;border-radius:50%;filter:blur(100px);opacity:.12;animation:bfloat 12s ease-in-out infinite}
+    .b1{width:600px;height:600px;background:#6d28d9;top:-200px;left:-200px}
+    .b2{width:500px;height:500px;background:#8b5cf6;bottom:10%;right:-150px;animation-delay:4s}
+    .b3{width:400px;height:400px;background:#5b21b6;top:40%;left:30%;animation-delay:8s}
+    @keyframes bfloat{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-20px) scale(1.05)}66%{transform:translate(-20px,30px) scale(.95)}}
+
+    /* NAVBAR */
+    #nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:18px 0;transition:var(--r)}
+    #nav.sc{background:rgba(9,9,15,.88);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:12px 0}
+    .navi{display:flex;align-items:center;justify-content:space-between}
+    .nlogo{font-size:1.3rem;font-weight:800;letter-spacing:-.02em}
+    .nlogo span{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .nlinks{display:flex;align-items:center;gap:6px}
+    .nlinks a{font-size:.9rem;font-weight:500;color:var(--muted);padding:7px 14px;border-radius:8px;transition:var(--r)}
+    .nlinks a:hover,.nlinks a.act{color:var(--text);background:rgba(139,92,246,.1)}
+    .ncta{display:flex;align-items:center;gap:12px}
+    .hmbg{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:transparent;border:none}
+    .hmbg span{display:block;width:24px;height:2px;background:var(--text);border-radius:99px;transition:var(--r)}
+    .hmbg.op span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+    .hmbg.op span:nth-child(2){opacity:0}
+    .hmbg.op span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+    .mmenu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(9,9,15,.97);backdrop-filter:blur(20px);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:28px}
+    .mmenu.op{display:flex}
+    .mmenu a{font-size:1.8rem;font-weight:700;color:var(--muted);transition:var(--r)}
+    .mmenu a:hover{color:var(--purpleL)}
+    .mclose{position:absolute;top:20px;right:24px;font-size:1.8rem;cursor:pointer;color:var(--muted);background:transparent;border:none}
+
+    /* HERO */
+    #hero{min-height:100vh;display:flex;align-items:center;padding-top:80px;position:relative;overflow:hidden}
+    .hgrid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+    .hbadge{display:inline-flex;align-items:center;gap:8px;background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.25);border-radius:99px;padding:8px 16px;font-size:.82rem;font-weight:600;color:var(--purpleL);margin-bottom:24px}
+    .hdot{width:7px;height:7px;background:#22c55e;border-radius:50%;animation:pdot 2s ease-in-out infinite}
+    @keyframes pdot{0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,.4)}50%{box-shadow:0 0 0 6px rgba(34,197,94,0)}}
+    .hname{font-size:clamp(2.8rem,6vw,4.5rem);font-weight:900;line-height:1.05;letter-spacing:-.03em;margin-bottom:12px}
+    .htitle{font-size:clamp(1rem,2.5vw,1.3rem);color:var(--purpleL);font-family:var(--mono);font-weight:500;margin-bottom:20px;min-height:1.5em}
+    .htitle::before{content:'// ';color:var(--faint)}
+    .hdesc{font-size:1.05rem;color:var(--muted);max-width:480px;margin-bottom:36px;line-height:1.8}
+    .hbtns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:48px}
+    .hstats{display:flex;gap:32px}
+    .snum{font-size:1.8rem;font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+    .slbl{font-size:.8rem;color:var(--faint);margin-top:4px;text-transform:uppercase;letter-spacing:.06em}
+    .himgw{display:flex;justify-content:center;position:relative}
+    .hring{position:relative;width:360px;height:360px}
+    .hring::before{content:'';position:absolute;inset:-3px;border-radius:50%;background:conic-gradient(from 0deg,#6d28d9,#8b5cf6,#a78bfa,#c084fc,#6d28d9);animation:spin 8s linear infinite;z-index:0}
+    .hring::after{content:'';position:absolute;inset:-3px;border-radius:50%;background:conic-gradient(from 0deg,#6d28d9,#8b5cf6,#a78bfa,#c084fc,#6d28d9);filter:blur(16px);opacity:.6;animation:spin 8s linear infinite;z-index:0}
+    @keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+    .havatar{position:absolute;inset:6px;border-radius:50%;overflow:hidden;z-index:1;background:var(--bg3)}
+    .havatar img{width:100%;height:100%;object-fit:cover}
+    .fbadge{position:absolute;background:rgba(15,15,26,.9);border:1px solid var(--border2);border-radius:12px;padding:10px 14px;display:flex;align-items:center;gap:8px;font-size:.82rem;font-weight:600;backdrop-filter:blur(12px);z-index:10;white-space:nowrap;animation:flt 4s ease-in-out infinite}
+    .fbadge i{font-size:1.1rem}
+    .fb1{top:10%;right:-30px}
+    .fb2{bottom:20%;right:-20px;animation-delay:1.5s}
+    .fb3{bottom:5%;left:-20px;animation-delay:.8s}
+    .fb4{top:25%;left:-40px;animation-delay:2.2s}
+    @keyframes flt{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+
+    /* ABOUT */
+    #about{background:var(--bg2)}
+    .agrid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+    .aimgw{position:relative}
+    .aimgbox{border-radius:20px;overflow:hidden;border:1px solid var(--border2);box-shadow:var(--shadow);aspect-ratio:4/3;background:linear-gradient(135deg,rgba(109,40,217,.15),rgba(139,92,246,.05));display:flex;align-items:center;justify-content:center}
+    .aimgbox img{width:100%;height:100%;object-fit:cover}
+    .abadge{position:absolute;bottom:-20px;right:-20px;background:rgba(9,9,15,.95);border:1px solid var(--border2);border-radius:20px;padding:16px 20px;backdrop-filter:blur(16px);box-shadow:var(--shadowc)}
+    .abadge .co{font-weight:700;font-size:1rem}
+    .abadge .ro{font-size:.8rem;color:var(--muted);margin-top:2px}
+    .adesc{color:var(--muted);font-size:1.02rem;line-height:1.85;margin-bottom:16px}
+    .ahighs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px}
+    .ahi{display:flex;align-items:flex-start;gap:10px;padding:14px;background:var(--gradcard);border:1px solid var(--border);border-radius:12px}
+    .ahi i{color:var(--purpleL);font-size:1rem;margin-top:2px;flex-shrink:0}
+    .ahi span{font-size:.88rem;font-weight:500;line-height:1.5}
+
+    /* SKILLS */
+    .shdr{text-align:center;margin-bottom:60px}
+    .shdr .sdesc{margin:12px auto 0}
+    .scats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .scat{background:var(--gradcard);border:1px solid var(--border);border-radius:20px;padding:28px;transition:var(--r)}
+    .scat:hover{border-color:var(--border2);box-shadow:var(--shadow);transform:translateY(-4px)}
+    .catH{display:flex;align-items:center;gap:12px;margin-bottom:24px}
+    .cico{width:44px;height:44px;background:rgba(139,92,246,.15);border:1px solid rgba(139,92,246,.3);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:var(--purpleL)}
+    .ctit{font-size:1.1rem;font-weight:700}
+    .ccnt{font-size:.78rem;color:var(--faint)}
+    .sklist{display:flex;flex-direction:column;gap:14px}
+    .skt{display:flex;justify-content:space-between;align-items:center;margin-bottom:7px}
+    .skn{display:flex;align-items:center;gap:8px;font-size:.9rem;font-weight:600}
+    .skp{font-size:.78rem;color:var(--purpleL);font-family:var(--mono)}
+    .skbar{height:5px;background:rgba(255,255,255,.06);border-radius:99px;overflow:hidden}
+    .skfill{height:100%;border-radius:99px;background:var(--grad);width:0;transition:width 1.2s cubic-bezier(.4,0,.2,1)}
+    .pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:48px;justify-content:center}
+    .pill{display:inline-flex;align-items:center;gap:6px;background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:8px 14px;font-size:.85rem;font-weight:500;transition:var(--r)}
+    .pill:hover{background:rgba(139,92,246,.12);border-color:var(--border2);transform:translateY(-2px)}
+    .pill i{color:var(--purpleL)}
+
+    /* EXPERIENCE */
+    #experience{background:var(--bg2)}
+    .xhdr{text-align:center;margin-bottom:60px}
+    .xhdr .sdesc{margin:12px auto 0}
+    .timeline{max-width:800px;margin:0 auto;position:relative}
+    .timeline::before{content:'';position:absolute;left:24px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--purpleD),transparent)}
+    .titem{display:flex;gap:32px;margin-bottom:40px;position:relative}
+    .tdot{width:50px;height:50px;flex-shrink:0;border-radius:50%;background:rgba(109,40,217,.2);border:2px solid var(--purple);display:flex;align-items:center;justify-content:center;color:var(--purpleL);font-size:1.1rem;position:relative;z-index:1;box-shadow:0 0 20px rgba(139,92,246,.3)}
+    .tcont{flex:1;background:var(--gradcard);border:1px solid var(--border);border-radius:20px;padding:28px 32px;transition:var(--r)}
+    .tcont:hover{border-color:var(--border2);box-shadow:var(--shadowc);transform:translateX(4px)}
+    .xrow{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:8px}
+    .xco{font-size:.85rem;font-weight:600;color:var(--purpleL);letter-spacing:.05em;text-transform:uppercase}
+    .xdt{font-size:.82rem;color:var(--faint);background:rgba(139,92,246,.08);padding:4px 10px;border-radius:99px}
+    .xrole{font-size:1.2rem;font-weight:700;margin-bottom:12px}
+    .xdesc{color:var(--muted);font-size:.95rem;line-height:1.75;margin-bottom:16px}
+    .xprojs{display:flex;flex-direction:column;gap:10px}
+    .xproj{display:flex;align-items:flex-start;gap:10px;padding:12px 14px;background:rgba(139,92,246,.05);border:1px solid rgba(139,92,246,.12);border-radius:8px}
+    .xproj i{color:var(--purpleL);font-size:.9rem;margin-top:3px;flex-shrink:0}
+    .xpname{font-weight:600;font-size:.9rem}
+    .xpdesc{font-size:.83rem;color:var(--muted);margin-top:2px}
+
+    /* PROJECTS */
+    .phdr{text-align:center;margin-bottom:60px}
+    .phdr .sdesc{margin:12px auto 0}
+    .pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .pcard{background:var(--gradcard);border:1px solid var(--border);border-radius:20px;overflow:hidden;transition:var(--r);display:flex;flex-direction:column}
+    .pcard:hover{border-color:var(--border2);box-shadow:var(--shadow);transform:translateY(-6px)}
+    .pimg{aspect-ratio:16/9;overflow:hidden;position:relative}
+    .pimg img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+    .pcard:hover .pimg img{transform:scale(1.06)}
+    .pimgph{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:linear-gradient(135deg,rgba(109,40,217,.2),rgba(139,92,246,.05));font-size:3rem;color:rgba(139,92,246,.5)}
+    .pimgph span{font-size:.85rem;color:var(--faint);font-family:var(--mono)}
+    .pov{position:absolute;inset:0;background:rgba(9,9,15,.5);display:flex;align-items:center;justify-content:center;opacity:0;transition:var(--r)}
+    .pcard:hover .pov{opacity:1}
+    .pbody{padding:24px;flex:1;display:flex;flex-direction:column}
+    .pnum{font-size:.75rem;font-family:var(--mono);color:var(--purpleL);margin-bottom:8px}
+    .ptit{font-size:1.15rem;font-weight:700;margin-bottom:10px}
+    .pdesc{font-size:.9rem;color:var(--muted);line-height:1.7;flex:1}
+    .ptags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+    .ptag{font-size:.75rem;font-weight:600;color:var(--purpleL);background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.2);border-radius:99px;padding:3px 10px}
+    .pftr{display:flex;justify-content:space-between;align-items:center;margin-top:20px;padding-top:16px;border-top:1px solid var(--border)}
+    .plink{display:inline-flex;align-items:center;gap:6px;font-size:.88rem;font-weight:600;color:var(--purpleL);transition:var(--r)}
+    .plink:hover{color:var(--accent);gap:10px}
+
+    /* EXPERTISE */
+    #expertise{background:var(--bg2)}
+    .exhdr{text-align:center;margin-bottom:60px}
+    .exhdr .sdesc{margin:12px auto 0}
+    .exgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .excard{background:var(--gradcard);border:1px solid var(--border);border-radius:20px;padding:28px;transition:var(--r);position:relative;overflow:hidden}
+    .excard::after{content:'';position:absolute;top:-50%;right:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(139,92,246,.06) 0%,transparent 60%);opacity:0;transition:opacity .4s ease}
+    .excard:hover::after{opacity:1}
+    .excard:hover{border-color:var(--border2);transform:translateY(-4px);box-shadow:var(--shadowc)}
+    .exic{width:52px;height:52px;background:rgba(139,92,246,.15);border:1px solid rgba(139,92,246,.3);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:18px}
+    .extit{font-size:1.05rem;font-weight:700;margin-bottom:10px}
+    .exdesc{font-size:.88rem;color:var(--muted);line-height:1.7}
+
+    /* CONTACT */
+    .cgrid{display:grid;grid-template-columns:1fr 1.4fr;gap:60px;align-items:start}
+    .cintro{font-size:1.02rem;color:var(--muted);line-height:1.8;margin-bottom:36px}
+    .citems{display:flex;flex-direction:column;gap:16px}
+    .citem{display:flex;align-items:center;gap:14px;padding:16px;background:var(--gradcard);border:1px solid var(--border);border-radius:12px;transition:var(--r)}
+    .citem:hover{border-color:var(--border2);transform:translateX(4px)}
+    .cico2{width:40px;height:40px;background:rgba(139,92,246,.15);border:1px solid rgba(139,92,246,.3);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--purpleL);font-size:1rem;flex-shrink:0}
+    .clbl{font-size:.78rem;color:var(--faint);text-transform:uppercase;letter-spacing:.06em}
+    .cval{font-size:.92rem;font-weight:600;margin-top:2px}
+    .cval a{color:var(--text);transition:var(--r)}
+    .cval a:hover{color:var(--purpleL)}
+    .socials{display:flex;gap:12px;margin-top:28px}
+    .socl{width:44px;height:44px;border-radius:8px;background:var(--surface2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:var(--muted);transition:var(--r)}
+    .socl:hover{background:rgba(139,92,246,.15);border-color:var(--border2);color:var(--purpleL);transform:translateY(-3px)}
+    .cfwrap{background:var(--gradcard);border:1px solid var(--border);border-radius:20px;padding:36px}
+    .cftit{font-size:1.3rem;font-weight:700;margin-bottom:24px}
+    .frow{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .fg{display:flex;flex-direction:column;gap:7px;margin-bottom:16px}
+    .fg label{font-size:.85rem;font-weight:600;color:var(--muted)}
+    .fg input,.fg textarea{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:12px;padding:13px 16px;color:var(--text);font-family:var(--font);font-size:.93rem;outline:none;transition:var(--r)}
+    .fg input::placeholder,.fg textarea::placeholder{color:var(--faint)}
+    .fg input:focus,.fg textarea:focus{border-color:rgba(139,92,246,.6);background:rgba(139,92,246,.05);box-shadow:0 0 0 3px rgba(139,92,246,.1)}
+    .fg textarea{resize:vertical;min-height:130px}
+    .fsbtn{width:100%;justify-content:center;margin-top:8px}
+    .fsuccess{display:none;text-align:center;padding:20px;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.2);border-radius:12px;color:#86efac;margin-top:12px;font-weight:500}
+
+    /* FOOTER */
+    footer{background:var(--bg2);border-top:1px solid var(--border);padding:60px 0 32px}
+    .fgrid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:48px;margin-bottom:48px}
+    .flogo{font-size:1.3rem;font-weight:800;margin-bottom:12px}
+    .flogo span{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .fdesc{font-size:.9rem;color:var(--muted);line-height:1.7;max-width:280px;margin-bottom:20px}
+    .fsocc{display:flex;gap:10px}
+    .fhd{font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:16px}
+    .flinks{display:flex;flex-direction:column;gap:10px}
+    .flinks a{font-size:.9rem;color:var(--muted);transition:var(--r)}
+    .flinks a:hover{color:var(--purpleL);padding-left:4px}
+    .fbot{display:flex;align-items:center;justify-content:space-between;padding-top:24px;border-top:1px solid var(--border);flex-wrap:wrap;gap:12px}
+    .fcopy{font-size:.85rem;color:var(--faint)}
+    .fcopy span{color:var(--purpleL)}
+    .ftag{font-size:.82rem;color:var(--faint);font-family:var(--mono)}
+
+    /* BACK TOP */
+    #bktop{position:fixed;bottom:28px;right:28px;width:46px;height:46px;background:var(--grad);border:none;border-radius:8px;color:#fff;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(20px);transition:var(--r);box-shadow:0 4px 20px rgba(109,40,217,.4);z-index:900}
+    #bktop.vis{opacity:1;transform:translateY(0)}
+    #bktop:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(109,40,217,.55)}
+
+    /* RESPONSIVE */
+    @media(max-width:1024px){
+      .hgrid{grid-template-columns:1fr;text-align:center;gap:48px}
+      .hdesc{max-width:100%}
+      .hbtns{justify-content:center}
+      .hstats{justify-content:center}
+      .himgw{order:-1}
+      .agrid{grid-template-columns:1fr;gap:40px}
+      .scats{grid-template-columns:1fr}
+      .pgrid{grid-template-columns:repeat(2,1fr)}
+      .exgrid{grid-template-columns:repeat(2,1fr)}
+      .cgrid{grid-template-columns:1fr}
+      .fgrid{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:768px){
+      .sec{padding:72px 0}
+      .nlinks{display:none}
+      .ncta .btn{display:none}
+      .hmbg{display:flex}
+      .hring{width:280px;height:280px}
+      .fbadge{display:none}
+      .pgrid{grid-template-columns:1fr}
+      .exgrid{grid-template-columns:1fr}
+      .ahighs{grid-template-columns:1fr}
+      .frow{grid-template-columns:1fr}
+      .fgrid{grid-template-columns:1fr;gap:32px}
+      .fbot{flex-direction:column;text-align:center}
+    }
+    @media(max-width:480px){
+      .hbtns{flex-direction:column;align-items:center}
+      .cfwrap{padding:24px}
+    }
+  </style>
+</head>
+<body>
+
+<div class="blobs" aria-hidden="true">
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="blob b3"></div>
+</div>
+
+<!-- NAVBAR -->
+<nav id="nav" aria-label="Main navigation">
+  <div class="container">
+    <div class="navi">
+      <a href="#hero" class="nlogo">M.<span>Aamir</span></a>
+      <ul class="nlinks" role="list">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#expertise">Expertise</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="ncta">
+        <a href="#contact" class="btn btn-p" id="nav-hire">Hire Me</a>
+        <button class="hmbg" id="hmbg" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mmenu" id="mmenu" aria-label="Mobile navigation">
+  <button class="mclose" id="mclose" aria-label="Close menu"><i class="fa fa-times"></i></button>
+  <a href="#about"      class="ml">About</a>
+  <a href="#skills"     class="ml">Skills</a>
+  <a href="#experience" class="ml">Experience</a>
+  <a href="#projects"   class="ml">Projects</a>
+  <a href="#expertise"  class="ml">Expertise</a>
+  <a href="#contact"    class="ml">Contact</a>
+</div>
+
+<!-- HERO -->
+<section id="hero" aria-label="Introduction">
+  <div class="container">
+    <div class="hgrid">
+      <div>
+        <div class="hbadge">
+          <span class="hdot"></span>
+          Available for freelance &amp; full-time roles
+        </div>
+        <h1 class="hname">Muhammad<br /><span class="gtext">Aamir</span></h1>
+        <p class="htitle" id="htitle">Backend Developer | PHP Laravel Developer</p>
+        <p class="hdesc">Backend developer with a strong foundation in PHP and Laravel, building reliable web applications, RESTful APIs, and data-driven systems. Experienced at Techline Programmers with real-world web &amp; CRM projects.</p>
+        <div class="hbtns">
+          <a href="#projects" class="btn btn-p" id="hero-work"><i class="fa fa-rocket"></i> View My Work</a>
+          <a href="#contact"  class="btn btn-o" id="hero-contact"><i class="fa fa-envelope"></i> Contact Me</a>
+        </div>
+        <div class="hstats">
+          <div><div class="snum">3+</div><div class="slbl">Projects</div></div>
+          <div><div class="snum">10+</div><div class="slbl">Technologies</div></div>
+          <div><div class="snum">PHP</div><div class="slbl">Primary Stack</div></div>
+        </div>
+      </div>
+      <div class="himgw">
+        <div class="hring" aria-hidden="true">
+          <div class="havatar">
+            <img src="avatar.jpg" alt="Muhammad Aamir – Backend Developer" />
+          </div>
+        </div>
+        <div class="fbadge fb1" aria-hidden="true"><i class="fa-brands fa-php" style="color:#8892bf"></i> PHP &amp; Laravel</div>
+        <div class="fbadge fb2" aria-hidden="true"><i class="fa-solid fa-database" style="color:#00758f"></i> MySQL Expert</div>
+        <div class="fbadge fb3" aria-hidden="true"><i class="fa-brands fa-node-js" style="color:#68a063"></i> Node.js</div>
+        <div class="fbadge fb4" aria-hidden="true"><i class="fa-solid fa-server" style="color:#a78bfa"></i> Backend Dev</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="sec" aria-label="About Me">
+  <div class="container">
+    <div class="agrid">
+      <div class="aimgw revL">
+        <div class="aimgbox"><img src="avatar.jpg" alt="Muhammad Aamir" /></div>
+        <div class="abadge"><div class="co">Techline Programmers</div><div class="ro">Backend Developer</div></div>
+      </div>
+      <div class="revR">
+        <div class="tag"><i class="fa fa-user"></i> About Me</div>
+        <h2 class="stitle">Crafting <span class="gtext">Backend Solutions</span> That Scale</h2>
+        <p class="adesc" style="margin-top:16px">I'm Muhammad Aamir, a backend developer specializing in <strong>PHP and the Laravel framework</strong>. My focus is on building clean, efficient, and maintainable server-side applications — from REST APIs to full-featured web platforms.</p>
+        <p class="adesc">I have professional experience at <strong>Techline Programmers</strong>, where I worked on web development projects including <strong>786tax.com</strong>, <strong>kasbati.co</strong>, and a <strong>CRM (Customer Relationship Management) system</strong>. These engagements strengthened my ability to translate real-world business requirements into robust backend architecture.</p>
+        <p class="adesc">Beyond backend work, I have hands-on knowledge across the full stack — including frontend technologies like React.js and Angular.js — which helps me collaborate effectively in any team environment.</p>
+        <div class="ahighs">
+          <div class="ahi"><i class="fa fa-code"></i><span>PHP &amp; Laravel backend architecture</span></div>
+          <div class="ahi"><i class="fa fa-database"></i><span>MySQL, SQL Server &amp; MongoDB</span></div>
+          <div class="ahi"><i class="fa fa-plug"></i><span>RESTful API design &amp; integration</span></div>
+          <div class="ahi"><i class="fa fa-layer-group"></i><span>Full-stack awareness &amp; collaboration</span></div>
+          <div class="ahi"><i class="fa fa-building"></i><span>Experience at Techline Programmers</span></div>
+          <div class="ahi"><i class="fa fa-briefcase"></i><span>Real-world web &amp; CRM projects</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="sec" aria-label="Technical Skills">
+  <div class="container">
+    <div class="shdr reveal">
+      <div class="tag"><i class="fa fa-star"></i> Skills</div>
+      <h2 class="stitle">Technical <span class="gtext">Skill Set</span></h2>
+      <p class="sdesc">A curated overview of the technologies I work with across the full stack.</p>
+    </div>
+    <div class="scats">
+      <!-- Frontend -->
+      <div class="scat reveal" style="transition-delay:.1s">
+        <div class="catH">
+          <div class="cico"><i class="fa fa-paint-brush"></i></div>
+          <div><div class="ctit">Frontend</div><div class="ccnt">6 technologies</div></div>
+        </div>
+        <div class="sklist">
+          <div><div class="skt"><div class="skn"><i class="fa-brands fa-html5" style="color:#e34f26"></i> HTML5</div><div class="skp">90%</div></div><div class="skbar"><div class="skfill" data-w="90"></div></div></div>
+          <div><div class="skt"><div class="skn"><i class="fa-brands fa-css3-alt" style="color:#1572b6"></i> CSS3</div><div class="skp">85%</div></div><div class="skbar"><div class="skfill" data-w="85"></div></div></div>
+          <div><div class="skt"><div class="skn"><i class="fa-brands fa-js" style="color:#f7df1e"></i> JavaScript</div><div class="skp">78%</div></div><div class="skbar"><div class="skfill" data-w="78"></div></div></div>
+          <div><div class="skt"><div class="skn"><i class="fa-brands fa-bootstrap" style="color:#7952b3"></i> Bootstrap</div><div class="skp">88%</div></div><div class="skbar"><div class="skfill" data-w="88"></div></div></div>
+          <div><div class="skt"><div class="skn"><i class="fa-brands fa-react" style="color:#61dafb"></i> React.js</div><div class="skp">65%</div></div><div class="skbar"><div class="skfill" data-w="65"></div></div></div>
+          <div><div class="skt"><div class="skn"><i class="fa-brands fa-angular" style="color:#dd1b16"></i> Angular.js</div><div class="skp">60%</div></div><div class="skbar"><div class="skfill" data-w="60"></div></div></div>
+        </div>
+      </div>
+      <!-- Backend -->
+      <div class="scat reveal" style="transition-delay:.2s">
+        <div class="catH">
+          <div class="cico"><i class="fa fa-server"></i></div>
+          <div><div class="ctit">Backend</div><div class="ccnt">5 technologies</div></div>
+        </div>
+        <div class="sklist">
+          <div><div class="skt"><div class="skn"><i class="fa-brands fa-php" style="color:#8892bf"></i> PHP</div><div class="skp">92%</div></div><div class="skbar"><div class="skfill" data-w="92"></div></div></div>
+          <div><div class="skt"><div class="skn"><i class="fa-solid fa-leaf" style="color:#ff2d20"></i> Laravel</div><div class="skp">90%</div></div><div class="skbar"><div class="skfill" data-w="90"></div></div></div>
+          <div><div class="skt"><div class="skn"><i class="fa-brands fa-microsoft" style="color:#0078d4"></i> ASP.NET</div><div class="skp">62%</div></div><div class="skbar"><div class="skfill" data-w="62"></div></div></div>
+          <div><div class="skt"><div class="skn"><i class="fa-brands fa-node-js" style="color:#68a063"></i> Node.js</div><div class="skp">72%</div></div><div class="skbar"><div class="skfill" data-w="72"></div></div></div>
+          <div><div class="skt"><div class="skn"><i class="fa-solid fa-bolt" style="color:#a78bfa"></i> Express.js</div><div class="skp">70%</div></div><div class="skbar"><div class="skfill" data-w="70"></div></div></div>
+        </div>
+      </div>
+      <!-- Databases -->
+      <div class="scat reveal" style="transition-delay:.3s">
+        <div class="catH">
+          <div class="cico"><i class="fa fa-database"></i></div>
+          <div><div class="ctit">Databases</div><div class="ccnt">3 databases</div></div>
+        </div>
+        <div class="sklist">
+          <div><div class="skt"><div class="skn"><i class="fa-solid fa-database" style="color:#00758f"></i> MySQL</div><div class="skp">88%</div></div><div class="skbar"><div class="skfill" data-w="88"></div></div></div>
+          <div><div class="skt"><div class="skn"><i class="fa-solid fa-table" style="color:#0078d4"></i> SQL Server</div><div class="skp">72%</div></div><div class="skbar"><div class="skfill" data-w="72"></div></div></div>
+          <div><div class="skt"><div class="skn"><i class="fa-solid fa-leaf" style="color:#4caf50"></i> MongoDB</div><div class="skp">65%</div></div><div class="skbar"><div class="skfill" data-w="65"></div></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="pills reveal">
+      <span class="pill"><i class="fa-brands fa-php"></i> PHP</span>
+      <span class="pill"><i class="fa-solid fa-leaf"></i> Laravel</span>
+      <span class="pill"><i class="fa-brands fa-html5"></i> HTML5</span>
+      <span class="pill"><i class="fa-brands fa-css3-alt"></i> CSS3</span>
+      <span class="pill"><i class="fa-brands fa-js"></i> JavaScript</span>
+      <span class="pill"><i class="fa-brands fa-bootstrap"></i> Bootstrap</span>
+      <span class="pill"><i class="fa-brands fa-react"></i> React.js</span>
+      <span class="pill"><i class="fa-brands fa-angular"></i> Angular.js</span>
+      <span class="pill"><i class="fa-brands fa-node-js"></i> Node.js</span>
+      <span class="pill"><i class="fa-solid fa-bolt"></i> Express.js</span>
+      <span class="pill"><i class="fa-brands fa-microsoft"></i> ASP.NET</span>
+      <span class="pill"><i class="fa-solid fa-database"></i> MySQL</span>
+      <span class="pill"><i class="fa-solid fa-table"></i> SQL Server</span>
+      <span class="pill"><i class="fa-solid fa-leaf"></i> MongoDB</span>
+      <span class="pill"><i class="fa-brands fa-jquery"></i> jQuery</span>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="sec" aria-label="Work Experience">
+  <div class="container">
+    <div class="xhdr reveal">
+      <div class="tag"><i class="fa fa-briefcase"></i> Experience</div>
+      <h2 class="stitle">Professional <span class="gtext">Experience</span></h2>
+      <p class="sdesc">My hands-on journey building web applications in a professional environment.</p>
+    </div>
+    <div class="timeline">
+      <div class="titem reveal">
+        <div class="tdot"><i class="fa fa-building"></i></div>
+        <div class="tcont">
+          <div class="xrow">
+            <div>
+              <div class="xco">Techline Programmers</div>
+              <div class="xrole">Software Developer / Backend Developer</div>
+            </div>
+            <div class="xdt">Professional Experience</div>
+          </div>
+          <p class="xdesc">Worked at Techline Programmers as a backend developer, contributing to multiple web development projects. Collaborated with teams to design and implement server-side logic, database structures, and integrations using PHP and Laravel as the primary technology stack.</p>
+          <div class="xprojs">
+            <div class="xproj">
+              <i class="fa fa-globe"></i>
+              <div><div class="xpname">786tax.com</div><div class="xpdesc">Web development project — a tax-related web platform built and maintained as part of the team's deliverables.</div></div>
+            </div>
+            <div class="xproj">
+              <i class="fa fa-store"></i>
+              <div><div class="xpname">kasbati.co</div><div class="xpdesc">Web development project — an online web platform developed during the tenure at Techline Programmers.</div></div>
+            </div>
+            <div class="xproj">
+              <i class="fa fa-users"></i>
+              <div><div class="xpname">CRM System</div><div class="xpdesc">Customer Relationship Management system — designed and built to support business operations and client management workflows.</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="sec" aria-label="Projects">
+  <div class="container">
+    <div class="phdr reveal">
+      <div class="tag"><i class="fa fa-rocket"></i> Projects</div>
+      <h2 class="stitle">Featured <span class="gtext">Projects</span></h2>
+      <p class="sdesc">Real-world web applications and systems I contributed to as a backend developer.</p>
+    </div>
+    <div class="pgrid">
+      <!-- 786tax -->
+      <article class="pcard reveal" style="transition-delay:.1s">
+        <div class="pimg">
+          <img src="project_786tax.jpg" alt="786tax.com – Tax Web Platform" loading="lazy" />
+          <div class="pov">
+            <a href="https://786tax.com" target="_blank" rel="noopener noreferrer" class="btn btn-p" id="proj1-btn"><i class="fa fa-external-link-alt"></i> Visit Site</a>
+          </div>
+        </div>
+        <div class="pbody">
+          <div class="pnum">01 / Project</div>
+          <h3 class="ptit">786tax.com</h3>
+          <p class="pdesc">A tax-related web platform developed as part of the team at Techline Programmers. Involved backend development work using PHP and Laravel to support the platform's web functionality.</p>
+          <div class="ptags">
+            <span class="ptag">PHP</span><span class="ptag">Laravel</span><span class="ptag">MySQL</span><span class="ptag">JavaScript</span>
+          </div>
+          <div class="pftr">
+            <a href="https://786tax.com" target="_blank" rel="noopener noreferrer" class="plink" id="proj1-link">View Live <i class="fa fa-arrow-right"></i></a>
+            <span class="ptag">Web Platform</span>
+          </div>
+        </div>
+      </article>
+      <!-- kasbati -->
+      <article class="pcard reveal" style="transition-delay:.2s">
+        <div class="pimg">
+          <img src="project_kasbati.jpg" alt="kasbati.co – Web Platform" loading="lazy" />
+          <div class="pov">
+            <a href="https://kasbati.co" target="_blank" rel="noopener noreferrer" class="btn btn-p" id="proj2-btn"><i class="fa fa-external-link-alt"></i> Visit Site</a>
+          </div>
+        </div>
+        <div class="pbody">
+          <div class="pnum">02 / Project</div>
+          <h3 class="ptit">kasbati.co</h3>
+          <p class="pdesc">An online web platform developed at Techline Programmers. Contributed to the backend development and integration work that powers the platform's core features and functionality.</p>
+          <div class="ptags">
+            <span class="ptag">PHP</span><span class="ptag">Laravel</span><span class="ptag">MySQL</span><span class="ptag">Bootstrap</span>
+          </div>
+          <div class="pftr">
+            <a href="https://kasbati.co" target="_blank" rel="noopener noreferrer" class="plink" id="proj2-link">View Live <i class="fa fa-arrow-right"></i></a>
+            <span class="ptag">Web Platform</span>
+          </div>
+        </div>
+      </article>
+      <!-- CRM -->
+      <article class="pcard reveal" style="transition-delay:.3s">
+        <div class="pimg">
+          <div class="pimgph">
+            <i class="fa fa-users"></i>
+            <span>crm-system/</span>
+          </div>
+        </div>
+        <div class="pbody">
+          <div class="pnum">03 / Project</div>
+          <h3 class="ptit">CRM System</h3>
+          <p class="pdesc">A Customer Relationship Management (CRM) system developed at Techline Programmers. Built to support client management, workflow automation, and business operations using a PHP/Laravel backend.</p>
+          <div class="ptags">
+            <span class="ptag">PHP</span><span class="ptag">Laravel</span><span class="ptag">MySQL</span><span class="ptag">jQuery</span>
+          </div>
+          <div class="pftr">
+            <span class="plink" style="color:var(--faint);cursor:default">Internal System</span>
+            <span class="ptag">Enterprise</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERTISE -->
+<section id="expertise" class="sec" aria-label="Technical Expertise">
+  <div class="container">
+    <div class="exhdr reveal">
+      <div class="tag"><i class="fa fa-trophy"></i> Expertise</div>
+      <h2 class="stitle">Core <span class="gtext">Expertise</span></h2>
+      <p class="sdesc">Areas where I deliver the most value and have the deepest technical knowledge.</p>
+    </div>
+    <div class="exgrid">
+      <div class="excard reveal" style="transition-delay:.05s">
+        <div class="exic"><i class="fa-brands fa-php" style="color:#8892bf"></i></div>
+        <div class="extit">PHP Development</div>
+        <div class="exdesc">Strong proficiency in PHP — the language powering my core backend work. Comfortable with OOP, modern PHP practices, and writing clean, maintainable server-side code.</div>
+      </div>
+      <div class="excard reveal" style="transition-delay:.1s">
+        <div class="exic"><i class="fa-solid fa-leaf" style="color:#ff2d20"></i></div>
+        <div class="extit">Laravel Framework</div>
+        <div class="exdesc">Deep experience with Laravel's ecosystem — Eloquent ORM, routing, middleware, Blade templating, Artisan CLI, queues, and authentication scaffolding for full-featured web apps.</div>
+      </div>
+      <div class="excard reveal" style="transition-delay:.15s">
+        <div class="exic"><i class="fa-solid fa-database" style="color:#00758f"></i></div>
+        <div class="extit">MySQL &amp; Databases</div>
+        <div class="exdesc">Solid foundation in relational database design, query optimization, and schema management with MySQL. Also experienced with SQL Server and MongoDB.</div>
+      </div>
+      <div class="excard reveal" style="transition-delay:.2s">
+        <div class="exic"><i class="fa-solid fa-plug" style="color:#a78bfa"></i></div>
+        <div class="extit">RESTful API Development</div>
+        <div class="exdesc">Designing and building clean REST APIs using Laravel and Express.js — with proper authentication, request validation, error handling, and structured JSON responses.</div>
+      </div>
+      <div class="excard reveal" style="transition-delay:.25s">
+        <div class="exic"><i class="fa-brands fa-js" style="color:#f7df1e"></i></div>
+        <div class="extit">JavaScript &amp; jQuery</div>
+        <div class="exdesc">Proficient in vanilla JavaScript and jQuery for DOM manipulation, AJAX calls, and dynamic UI interactions — complementing backend systems with responsive frontend behavior.</div>
+      </div>
+      <div class="excard reveal" style="transition-delay:.3s">
+        <div class="exic"><i class="fa-brands fa-node-js" style="color:#68a063"></i></div>
+        <div class="extit">Node.js / Express.js</div>
+        <div class="exdesc">Building lightweight backend services and APIs with Node.js and Express.js — enabling fast, event-driven server logic for modern web and API-first applications.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="sec" aria-label="Contact">
+  <div class="container">
+    <div class="reveal" style="text-align:center;margin-bottom:60px">
+      <div class="tag"><i class="fa fa-envelope"></i> Contact</div>
+      <h2 class="stitle">Let's <span class="gtext">Work Together</span></h2>
+      <p class="sdesc" style="margin:12px auto 0">Have a project in mind or want to discuss an opportunity? Reach out — I'd love to hear from you.</p>
+    </div>
+    <div class="cgrid">
+      <div class="revL">
+        <p class="cintro">I'm open to backend development roles, freelance projects, and collaborations. Whether you need a Laravel API, a full web application, or a CRM solution — I'm ready to help turn your idea into a working product.</p>
+        <div class="citems">
+          <div class="citem">
+            <div class="cico2"><i class="fa fa-envelope"></i></div>
+            <div><div class="clbl">Email</div><div class="cval"><a href="mailto:your.email@example.com">your.email@example.com</a></div></div>
+          </div>
+          <div class="citem">
+            <div class="cico2"><i class="fa fa-phone"></i></div>
+            <div><div class="clbl">Phone</div><div class="cval">+92 XXX XXX XXXX</div></div>
+          </div>
+          <div class="citem">
+            <div class="cico2"><i class="fa-brands fa-linkedin"></i></div>
+            <div><div class="clbl">LinkedIn</div><div class="cval"><a href="#">linkedin.com/in/muhammad-aamir</a></div></div>
+          </div>
+          <div class="citem">
+            <div class="cico2"><i class="fa-brands fa-github"></i></div>
+            <div><div class="clbl">GitHub</div><div class="cval"><a href="#">github.com/muhammad-aamir</a></div></div>
+          </div>
+        </div>
+        <div class="socials">
+          <a href="#" class="socl" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" class="socl" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="#" class="socl" aria-label="X / Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" class="socl" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="cfwrap revR">
+        <div class="cftit">Send a Message</div>
+        <form id="cform" novalidate>
+          <div class="frow">
+            <div class="fg">
+              <label for="fname">Full Name</label>
+              <input type="text" id="fname" name="name" placeholder="Your full name" required />
+            </div>
+            <div class="fg">
+              <label for="femail">Email Address</label>
+              <input type="email" id="femail" name="email" placeholder="your@email.com" required />
+            </div>
+          </div>
+          <div class="fg">
+            <label for="fsubj">Subject</label>
+            <input type="text" id="fsubj" name="subject" placeholder="What's this about?" required />
+          </div>
+          <div class="fg">
+            <label for="fmsg">Message</label>
+            <textarea id="fmsg" name="message" placeholder="Tell me about your project or opportunity..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-p fsbtn" id="fsubmit"><i class="fa fa-paper-plane"></i> Send Message</button>
+          <div class="fsuccess" id="fsuccess"><i class="fa fa-check-circle"></i> Thank you! Your message has been received. I'll get back to you soon.</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="fgrid">
+      <div>
+        <div class="flogo">Muhammad <span>Aamir</span></div>
+        <p class="fdesc">Backend Developer specializing in PHP &amp; Laravel. Building robust web applications and APIs with clean, maintainable code.</p>
+        <div class="fsocc">
+          <a href="#" class="socl" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" class="socl" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="#" class="socl" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" class="socl" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div>
+        <div class="fhd">Navigation</div>
+        <ul class="flinks">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="fhd">Technologies</div>
+        <ul class="flinks">
+          <li><a href="#skills">PHP &amp; Laravel</a></li>
+          <li><a href="#skills">Node.js / Express</a></li>
+          <li><a href="#skills">MySQL &amp; MongoDB</a></li>
+          <li><a href="#skills">React.js &amp; Angular</a></li>
+          <li><a href="#skills">ASP.NET</a></li>
+          <li><a href="#expertise">RESTful APIs</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="fbot">
+      <p class="fcopy">&copy; 2025 <span>Muhammad Aamir</span>. All rights reserved.</p>
+      <p class="ftag">Backend Developer | PHP &amp; Laravel Developer</p>
+    </div>
+  </div>
+</footer>
+
+<button id="bktop" aria-label="Back to top"><i class="fa fa-arrow-up"></i></button>
+
+<script>
+  /* NAV SCROLL */
+  const nav = document.getElementById('nav');
+  const bktop = document.getElementById('bktop');
+  const secs = ['about','skills','experience','projects','expertise','contact'];
+  const nls  = document.querySelectorAll('.nlinks a');
+
+  window.addEventListener('scroll', () => {
+    const sy = window.scrollY;
+    nav.classList.toggle('sc', sy > 50);
+    bktop.classList.toggle('vis', sy > 400);
+    let cur = '';
+    secs.forEach(id => {
+      const el = document.getElementById(id);
+      if (el && sy >= el.offsetTop - 160) cur = id;
+    });
+    nls.forEach(a => a.classList.toggle('act', a.getAttribute('href') === '#'+cur));
+  }, {passive:true});
+
+  bktop.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+  /* HAMBURGER */
+  const hmbg = document.getElementById('hmbg');
+  const mmenu = document.getElementById('mmenu');
+  const mclose = document.getElementById('mclose');
+
+  function openM() { mmenu.classList.add('op'); hmbg.classList.add('op'); hmbg.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; }
+  function closeM(){ mmenu.classList.remove('op'); hmbg.classList.remove('op'); hmbg.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
+
+  hmbg.addEventListener('click', openM);
+  mclose.addEventListener('click', closeM);
+  document.querySelectorAll('.ml').forEach(l => l.addEventListener('click', closeM));
+
+  /* SCROLL REVEAL */
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('vis'); });
+  }, {threshold:.12});
+  document.querySelectorAll('.reveal,.revL,.revR').forEach(el => obs.observe(el));
+
+  /* SKILL BARS */
+  const skobs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if(e.isIntersecting){
+        const f = e.target;
+        setTimeout(() => { f.style.width = f.dataset.w + '%'; }, 200);
+        skobs.unobserve(f);
+      }
+    });
+  }, {threshold:.3});
+  document.querySelectorAll('.skfill').forEach(f => skobs.observe(f));
+
+  /* CONTACT FORM */
+  document.getElementById('cform').addEventListener('submit', e => {
+    e.preventDefault();
+    const btn = document.getElementById('fsubmit');
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fa fa-spinner fa-spin"></i> Sending...';
+    setTimeout(() => {
+      document.getElementById('fsuccess').style.display = 'block';
+      e.target.reset();
+      btn.disabled = false;
+      btn.innerHTML = '<i class="fa fa-paper-plane"></i> Send Message';
+      setTimeout(() => { document.getElementById('fsuccess').style.display = 'none'; }, 6000);
+    }, 1800);
+  });
+
+  /* SMOOTH SCROLL */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const t = document.querySelector(a.getAttribute('href'));
+      if(t){ e.preventDefault(); window.scrollTo({top: t.getBoundingClientRect().top + window.scrollY - 80, behavior:'smooth'}); }
+    });
+  });
+
+  /* TYPING EFFECT */
+  const titles = [
+    'Backend Developer | PHP Laravel Developer',
+    'PHP & Laravel Specialist',
+    'API & Web Application Builder',
+    'Full Stack-Aware Backend Dev',
+  ];
+  let ti=0, ci=0, del=false;
+  const ht = document.getElementById('htitle');
+  function type(){
+    const cur = titles[ti];
+    if(!del){ ht.textContent = cur.slice(0,ci+1); ci++; if(ci===cur.length){del=true;setTimeout(type,2200);return;} }
+    else { ht.textContent = cur.slice(0,ci-1); ci--; if(ci===0){del=false;ti=(ti+1)%titles.length;} }
+    setTimeout(type, del ? 40 : 70);
+  }
+  setTimeout(type, 1000);
+</script>
+</body>
+</html>
