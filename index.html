@@ -353,7 +353,7 @@
           Available for freelance &amp; full-time roles
         </div>
         <h1 class="hname">Muhammad<br /><span class="gtext">Aamir</span></h1>
-        <p class="htitle" id="htitle">Backend Developer | PHP Laravel Developer</p>
+        <p class="htitle" id="htitle">Backend Developer</p>
         <p class="hdesc">Backend developer with a strong foundation in PHP and Laravel, building reliable web applications, RESTful APIs, and data-driven systems. Experienced at Techline Programmers with real-world web &amp; CRM projects.</p>
         <div class="hbtns">
           <a href="#projects" class="btn btn-p" id="hero-work"><i class="fa fa-rocket"></i> View My Work</a>
@@ -823,21 +823,21 @@
   });
 
   /* TYPING EFFECT */
-  const titles = [
-    'Backend Developer | PHP Laravel Developer',
-    'PHP & Laravel Specialist',
-    'API & Web Application Builder',
-    'Full Stack-Aware Backend Dev',
-  ];
-  let ti=0, ci=0, del=false;
-  const ht = document.getElementById('htitle');
-  function type(){
-    const cur = titles[ti];
-    if(!del){ ht.textContent = cur.slice(0,ci+1); ci++; if(ci===cur.length){del=true;setTimeout(type,2200);return;} }
-    else { ht.textContent = cur.slice(0,ci-1); ci--; if(ci===0){del=false;ti=(ti+1)%titles.length;} }
-    setTimeout(type, del ? 40 : 70);
-  }
-  setTimeout(type, 1000);
+  // const titles = [
+  //   'Backend Developer | PHP Laravel Developer',
+  //   'PHP & Laravel Specialist',
+  //   'API & Web Application Builder',
+  //   'Full Stack-Aware Backend Dev',
+  // ];
+  // let ti=0, ci=0, del=false;
+  // const ht = document.getElementById('htitle');
+  // function type(){
+  //   const cur = titles[ti];
+  //   if(!del){ ht.textContent = cur.slice(0,ci+1); ci++; if(ci===cur.length){del=true;setTimeout(type,2200);return;} }
+  //   else { ht.textContent = cur.slice(0,ci-1); ci--; if(ci===0){del=false;ti=(ti+1)%titles.length;} }
+  //   setTimeout(type, del ? 40 : 70);
+  // }
+  // setTimeout(type, 1000);
 </script>
 </body>
 </html>
